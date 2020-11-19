@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-19T18:02:10+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Calamares</title><subtitle>The idea of Calamares arose from a desire of several independent Linux distributions to come together and work on a shared system installer. Instead of everyone working on their own implementation and forking forks of forks, why not work together on something that can be used by many?</subtitle><author><name>Your Name</name></author><entry><title type="html">Calamares 3.2.34 released</title><link href="http://localhost:4000/calamares-3.2.34-is-out/" rel="alternate" type="text/html" title="Calamares 3.2.34 released" /><published>2020-11-16T00:00:00+01:00</published><updated>2020-11-16T00:00:00+01:00</updated><id>http://localhost:4000/calamares-3.2.34-is-out</id><content type="html" xml:base="http://localhost:4000/calamares-3.2.34-is-out/">&lt;p&gt;This is a quite-short-cycle release in the 3.2 series.
+There are translation updates, a fix for regressions in the
+&lt;em&gt;keyboard&lt;/em&gt; and &lt;em&gt;plasmalnf&lt;/em&gt; modules, and new login-name transliteration.&lt;/p&gt;
+
+&lt;p&gt;Calamares is a distribution-independent system installer, with an advanced
+partitioning feature for both manual and automated partitioning operations.
+Calamares is designed to be customizable by distribution maintainers without
+need for cumbersome patching, thanks to third party branding and external
+modules support.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;This release contains contributions from (alphabetically by first name):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Artem Grinev&lt;/li&gt;
+  &lt;li&gt;Gaël PORTAY&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;core&quot;&gt;Core&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;No core changes&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;modules&quot;&gt;Modules&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;em&gt;keyboard&lt;/em&gt; module had a regression in which it no-longer painted
+the keycaps in the keyboard preview. (reported by Vinnie)&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;plasmalnf&lt;/em&gt; module did not set all of the look-and-feel values
+in the target system. (reported by Bluestar Linux)&lt;/li&gt;
+  &lt;li&gt;In the &lt;em&gt;users&lt;/em&gt; module, warnings about the strength of the password
+are now correctly pluralized when possible.&lt;/li&gt;
+  &lt;li&gt;In the &lt;em&gt;users&lt;/em&gt; module, if ICU is installed, the user’s full name is
+automatically transliterated to US-ASCII (for some locales; this will
+need tweaking) so that the login name is acceptable. (Thanks Artem)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;If you experience an issue with Calamares, please tell us all about it
+on the &lt;a href=&quot;https://github.com/calamares/calamares/issues&quot;&gt;&lt;strong&gt;Calamares issue tracker&lt;/strong&gt;&lt;/a&gt;. For a full change list, or
+the full list of &lt;a href=&quot;https://github.com/calamares/calamares/issues?q=milestone%3Av3.2.34&quot;&gt;issues closed&lt;/a&gt; with this release, please see the
+Calamares code repository.&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">This is a quite-short-cycle release in the 3.2 series. There are translation updates, a fix for regressions in the keyboard and plasmalnf modules, and new login-name transliteration.</summary></entry><entry><title type="html">Calamares 3.2.33 released</title><link href="http://localhost:4000/calamares-3.2.33-is-out/" rel="alternate" type="text/html" title="Calamares 3.2.33 released" /><published>2020-11-09T00:00:00+01:00</published><updated>2020-11-09T00:00:00+01:00</updated><id>http://localhost:4000/calamares-3.2.33-is-out</id><content type="html" xml:base="http://localhost:4000/calamares-3.2.33-is-out/">&lt;p&gt;This is a regular short-cycle release in the 3.2 series.
+Translations for keyboards and timezones have been improved, partition flags
+are preserved in the edit dialog (this is a long-standing problem with manual
+partitioning that was finally tracked down thanks to reports from IRC
+user Vinnie), and a variety of internal fixes and refactorings.&lt;/p&gt;
+
+&lt;p&gt;Calamares is a distribution-independent system installer, with an advanced
+partitioning feature for both manual and automated partitioning operations.
+Calamares is designed to be customizable by distribution maintainers without
+need for cumbersome patching, thanks to third party branding and external
+modules support.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;This release contains contributions from (alphabetically by first name):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Anke Boersma&lt;/li&gt;
+  &lt;li&gt;Andrius Štikonas&lt;/li&gt;
+  &lt;li&gt;Artem Grinev&lt;/li&gt;
+  &lt;li&gt;Gaël PORTAY&lt;/li&gt;
+  &lt;li&gt;Matti Hyttinen&lt;/li&gt;
+  &lt;li&gt;TTran Me&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;core&quot;&gt;Core&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Calamares now sets the C++ standard for compilation to C++17; this
+is for better compatibility and fewer warnings when building with
+modern KDE Frameworks and KPMcore 4.2.0.&lt;/li&gt;
+  &lt;li&gt;Vietnamese translations have been added. Welcome! (Thanks TTran)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;modules&quot;&gt;Modules&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;em&gt;initcpiocfg&lt;/em&gt; module should support plymouth with encryption
+now. (Thanks Matti)&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;keyboard&lt;/em&gt; and &lt;em&gt;keyboardq&lt;/em&gt; modules now share backend code
+and handle non-ASCII layouts better (for setting passwords
+and usernames). (Thanks Artem)&lt;/li&gt;
+  &lt;li&gt;Various cleanups and documentation improvements in the &lt;em&gt;partition&lt;/em&gt;
+module, and configurable GPT name for swap. (Thanks Gaël)&lt;/li&gt;
+  &lt;li&gt;A long-standing bug related to GPT partition flags in the
+&lt;em&gt;partition&lt;/em&gt; module has been resolved. #1327 #1267&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;users&lt;/em&gt; module now has a more detailed way to specify
+user groups – which may be system groups rather than user-GIDs.
+A new option in each group can require that the group already
+exists in the target system, allowing for better consistency checks
+with the squashfs. #1523&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;If you experience an issue with Calamares, please tell us all about it
+on the &lt;a href=&quot;https://github.com/calamares/calamares/issues&quot;&gt;&lt;strong&gt;Calamares issue tracker&lt;/strong&gt;&lt;/a&gt;. For a full change list, or
+the full list of &lt;a href=&quot;https://github.com/calamares/calamares/issues?q=milestone%3Av3.2.33&quot;&gt;issues closed&lt;/a&gt; with this release, please see the
+Calamares code repository.&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">This is a regular short-cycle release in the 3.2 series. Translations for keyboards and timezones have been improved, partition flags are preserved in the edit dialog (this is a long-standing problem with manual partitioning that was finally tracked down thanks to reports from IRC user Vinnie), and a variety of internal fixes and refactorings.</summary></entry><entry><title type="html">Calamares 3.2.32.1 released</title><link href="http://localhost:4000/calamares-3.2.32.1-is-out/" rel="alternate" type="text/html" title="Calamares 3.2.32.1 released" /><published>2020-10-17T00:00:00+02:00</published><updated>2020-10-17T00:00:00+02:00</updated><id>http://localhost:4000/calamares-3.2.32.1-is-out</id><content type="html" xml:base="http://localhost:4000/calamares-3.2.32.1-is-out/">&lt;p&gt;This is a quick-fix for a source-incompatibility between
+Calamares 3.2.32 (released October 16th) and KPMcore 4.2.0
+(released October 13th). Since KPMcore is &lt;strong&gt;strongly&lt;/strong&gt; recommended
+for regular use (although it does not matter much on a Live CD),
+we did a new Calamares release for it.&lt;/p&gt;
+
+&lt;p&gt;Calamares is a distribution-independent system installer, with an advanced
+partitioning feature for both manual and automated partitioning operations.
+Calamares is designed to be customizable by distribution maintainers without
+need for cumbersome patching, thanks to third party branding and external
+modules support.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Besides the fix for KPMcore-compatibility, there are some minor translation
+fixes and it is no longer possibly to continue the installation with
+an empty login name.&lt;/p&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;If you experience an issue with Calamares, please tell us all about it
+on the &lt;a href=&quot;https://github.com/calamares/calamares/issues&quot;&gt;&lt;strong&gt;Calamares issue tracker&lt;/strong&gt;&lt;/a&gt;. For a full change list, or
+the full list of &lt;a href=&quot;https://github.com/calamares/calamares/issues?q=milestone%3Av3.2.32&quot;&gt;issues closed&lt;/a&gt; with this release, please see the
+Calamares code repository.&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">This is a quick-fix for a source-incompatibility between Calamares 3.2.32 (released October 16th) and KPMcore 4.2.0 (released October 13th). Since KPMcore is strongly recommended for regular use (although it does not matter much on a Live CD), we did a new Calamares release for it.</summary></entry><entry><title type="html">Calamares 3.2.32 released</title><link href="http://localhost:4000/calamares-3.2.32-is-out/" rel="alternate" type="text/html" title="Calamares 3.2.32 released" /><published>2020-10-16T00:00:00+02:00</published><updated>2020-10-16T00:00:00+02:00</updated><id>http://localhost:4000/calamares-3.2.32-is-out</id><content type="html" xml:base="http://localhost:4000/calamares-3.2.32-is-out/">&lt;p&gt;This is a quick short-cycle release in the 3.2 series.
+The new swapfile support was causing occasional problems
+on ArcoLinux, and this has been resolved by being smarter
+about creating the swapfile. There is a handful of
+bugfixes and some improved error-reporting.
+Also, a new translation to Friulian has appeared. Benvignûts!
+Some features originally planned for 3.2.32 have been bumped to the next
+short-cycle release, expected in a week or two.&lt;/p&gt;
+
+&lt;p&gt;Calamares is a distribution-independent system installer, with an advanced
+partitioning feature for both manual and automated partitioning operations.
+Calamares is designed to be customizable by distribution maintainers without
+need for cumbersome patching, thanks to third party branding and external
+modules support.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;This release contains contributions from (alphabetically by first name):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Fabian Tomat&lt;/li&gt;
+  &lt;li&gt;Gaël PORTAY&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;core&quot;&gt;Core&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;When doing GeoIP lookups, Calamares pretends to be Firefox.
+This resolves an issue where the GeoIP provider was refusing
+QNAM connections with the default User-Agent.&lt;/li&gt;
+  &lt;li&gt;New translation available, Friulian. Welcome!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;modules&quot;&gt;Modules&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;em&gt;netinstall&lt;/em&gt; module has some tricky configuration files;
+it now complains about more cases of bad syntax or poor structure.&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;partition&lt;/em&gt; module can now be constrained to work only with
+a particular kind of partition table. (thanks Gaël)&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;partition&lt;/em&gt; module is a little more resilient to variations
+in btrfs notation from os-prober.&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;shellprocess&lt;/em&gt; module now supports having a different progress
+message (other than “Shell Processes Job”) through the config file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;If you experience an issue with Calamares, please tell us all about it
+on the &lt;a href=&quot;https://github.com/calamares/calamares/issues&quot;&gt;&lt;strong&gt;Calamares issue tracker&lt;/strong&gt;&lt;/a&gt;. For a full change list, or
+the full list of &lt;a href=&quot;https://github.com/calamares/calamares/issues?q=milestone%3Av3.2.32&quot;&gt;issues closed&lt;/a&gt; with this release, please see the
+Calamares code repository.&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">This is a quick short-cycle release in the 3.2 series. The new swapfile support was causing occasional problems on ArcoLinux, and this has been resolved by being smarter about creating the swapfile. There is a handful of bugfixes and some improved error-reporting. Also, a new translation to Friulian has appeared. Benvignûts! Some features originally planned for 3.2.32 have been bumped to the next short-cycle release, expected in a week or two.</summary></entry><entry><title type="html">Calamares 3.2.31 released</title><link href="http://localhost:4000/calamares-3.2.31-is-out/" rel="alternate" type="text/html" title="Calamares 3.2.31 released" /><published>2020-10-06T00:00:00+02:00</published><updated>2020-10-06T00:00:00+02:00</updated><id>http://localhost:4000/calamares-3.2.31-is-out</id><content type="html" xml:base="http://localhost:4000/calamares-3.2.31-is-out/">&lt;p&gt;It took some time, with post-Akademy slowness and distractions,
+but Calamares 3.2.31 is here.
+This is a medium-cycle release with bugfixes, some new features,
+and translation updates in the Calamares 3.2 series.&lt;/p&gt;
+
+&lt;p&gt;Calamares is a distribution-independent system installer, with an advanced
+partitioning feature for both manual and automated partitioning operations.
+Calamares is designed to be customizable by distribution maintainers without
+need for cumbersome patching, thanks to third party branding and external
+modules support.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Note that this was initially released from git revision
+40aa0fcaba, and then re-tagged and re-rolled from one
+revision later, 9ce08beead. The first release would not
+build with KPMcore4; there are no other changes.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This release contains contributions from (alphabetically by first name):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Corentin Noël&lt;/li&gt;
+  &lt;li&gt;kadler15 (new contributor! hi!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;core&quot;&gt;Core&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;At the start of the &lt;em&gt;exec&lt;/em&gt; phase, an overview is given of the
+various job weights, which allows you to tweak the overall
+progress reporting during the installation.&lt;/li&gt;
+  &lt;li&gt;Problems with running Calamares on a 1-core single CPU have been resolved.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;modules&quot;&gt;Modules&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;em&gt;keyboard&lt;/em&gt; module now recognizes Turkish “F” layout and
+will set the vconsole keyboard layout correctly even if xkb
+keymaps are not found.&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;machineid&lt;/em&gt; module, which generates UUIDs for systemd and dbus
+and can generate entropy files (filled from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/dev/urandom&lt;/code&gt; in the host
+system) now supports more than one entropy file; generate them as needed
+(or copy a fixed value to all, depending on &lt;em&gt;entropy-copy&lt;/em&gt;). Deprecate
+&lt;em&gt;entropy&lt;/em&gt; (which generates a specific output file) as too inflexible.&lt;/li&gt;
+  &lt;li&gt;In the &lt;em&gt;partition&lt;/em&gt; module, swap can now be chosen as &lt;em&gt;file&lt;/em&gt;, which is
+&lt;strong&gt;not&lt;/strong&gt; create a swap partition, but write a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/swapfile&lt;/code&gt; in the root
+directory, 512MiB large, and set that as swap. There is as yet no
+“smarts” about the size of the swap file.&lt;/li&gt;
+  &lt;li&gt;Multiple problems in the &lt;em&gt;partition&lt;/em&gt; module around partition
+sizing have been resolved by Corentin Noël.&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;preservefiles&lt;/em&gt; module documentation did not match the functionality,
+and when used, didn’t work right. #1521 (thanks kadler15)&lt;/li&gt;
+  &lt;li&gt;Progress reporting from the &lt;em&gt;unpackfs&lt;/em&gt; module has been revamped:
+it reports more often now, so that it is more obvious that files
+are being transferred even when the percentage progress does not
+change.&lt;/li&gt;
+  &lt;li&gt;The &lt;em&gt;unpackfs&lt;/em&gt; module now supports a &lt;em&gt;weight&lt;/em&gt; setting for each
+of the unpack entries. For a single entry this does not matter,
+but if there are multiple entries it allows tweaking the relative
+progress between each entry.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;If you experience an issue with Calamares, please tell us all about it
+on the &lt;a href=&quot;https://github.com/calamares/calamares/issues&quot;&gt;&lt;strong&gt;Calamares issue tracker&lt;/strong&gt;&lt;/a&gt;. For a full change list, or
+the full list of &lt;a href=&quot;https://github.com/calamares/calamares/issues?q=milestone%3Av3.2.31&quot;&gt;issues closed&lt;/a&gt; with this release, please see the
+Calamares code repository.&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">It took some time, with post-Akademy slowness and distractions, but Calamares 3.2.31 is here. This is a medium-cycle release with bugfixes, some new features, and translation updates in the Calamares 3.2 series.</summary></entry><entry><title type="html">Calamares 3.2.30 released</title><link href="http://localhost:4000/calamares-3.2.30-is-out/" rel="alternate" type="text/html" title="Calamares 3.2.30 released" /><published>2020-09-03T00:00:00+02:00</published><updated>2020-09-03T00:00:00+02:00</updated><id>http://localhost:4000/calamares-3.2.30-is-out</id><content type="html" xml:base="http://localhost:4000/calamares-3.2.30-is-out/">&lt;p&gt;Just before KDE’s Akademy conference, a new Calamares release.
+Do not expect much Calamares work during the conference.
+This is a regular short-cycle release with bugfixes, some new features,
+and translation updates in the Calamares 3.2 series.&lt;/p&gt;
+
+&lt;p&gt;Calamares is a distribution-independent system installer, with an advanced
+partitioning feature for both manual and automated partitioning operations.
+Calamares is designed to be customizable by distribution maintainers without
+need for cumbersome patching, thanks to third party branding and external
+modules support.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;This release contains contributions from (alphabetically by first name):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Anke Boersma&lt;/li&gt;
+  &lt;li&gt;Asif Mahmud Shimon&lt;/li&gt;
+  &lt;li&gt;Manzoor Ahmed Munawar&lt;/li&gt;
+  &lt;li&gt;Sai Kamal&lt;/li&gt;
+  &lt;li&gt;Victor Ibragimov&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This release has two giant source-code changes that have no effect
+on functionality, but do touch each and every source file:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;SPDX headers for licensing information, following the standard
+set by REUSE.software ; all source files and resources have
+SPDX-License-Identifier information and copyright notices. All
+of the boilerplate texts have been removed.&lt;/li&gt;
+  &lt;li&gt;Calamares coding style has been mechanically applied to the entire
+codebase. This was already done to most of it, but there were
+some hold-outs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;core&quot;&gt;Core&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Network access status is deprecated in Qt 5.15’s QNetworkAccessManager,
+and was not useful already in some previous versions. Replace its
+use in the Calamares network service by testing-it-ourself directly
+via a synchronous ping. (Thanks to Asif)&lt;/li&gt;
+  &lt;li&gt;New Telugu translation. (Thanks to Sai)&lt;/li&gt;
+  &lt;li&gt;Urdu translation started. (Thanks to Manzoor)&lt;/li&gt;
+  &lt;li&gt;Timezones translated in Tajik and Russian. (Thanks to Victor)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;modules&quot;&gt;Modules&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;keyboardq&lt;/em&gt; and &lt;em&gt;localeq&lt;/em&gt; improvements. (Thanks to Anke)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;users&lt;/em&gt; module did not set up autologin properly. This is yet another
+regression left over from 3.2.28. (Reported by Phil and pcrepix, #1498)&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;welcome&lt;/em&gt; module now sets the &lt;em&gt;LANG&lt;/em&gt; key in the locale configuration
+(which is shared with the &lt;em&gt;locale&lt;/em&gt; module and consumed by the
+&lt;em&gt;localecfg&lt;/em&gt; module). This makes it feasible to drop the &lt;em&gt;locale&lt;/em&gt;
+module and still set the installed system’s language to the language
+selected in Calamares. (Reported by FerenOS)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;If you experience an issue with Calamares, please tell us all about it
+on the &lt;a href=&quot;https://github.com/calamares/calamares/issues&quot;&gt;&lt;strong&gt;Calamares issue tracker&lt;/strong&gt;&lt;/a&gt;. For a full change list, or
+the full list of &lt;a href=&quot;https://github.com/calamares/calamares/issues?q=milestone%3Av3.2.30&quot;&gt;issues closed&lt;/a&gt; with this release, please see the
+Calamares code repository.&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">Just before KDE’s Akademy conference, a new Calamares release. Do not expect much Calamares work during the conference. This is a regular short-cycle release with bugfixes, some new features, and translation updates in the Calamares 3.2 series.</summary></entry><entry><title type="html">Calamares Late Summer</title><link href="http://localhost:4000/calamares-summer/" rel="alternate" type="text/html" title="Calamares Late Summer" /><published>2020-08-25T00:00:00+02:00</published><updated>2020-08-25T00:00:00+02:00</updated><id>http://localhost:4000/calamares-summer</id><content type="html" xml:base="http://localhost:4000/calamares-summer/">&lt;p&gt;COVID-19 continues to hold much of the world in its grip,
+while Calamares development continues inside. In previous
+years there has been a “Calamares Summer Plan” so let’s continue
+with that in spite of everything.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;For the past 15 releases or more, Calamares has tried to
+do “short-cycle” releases: perhaps every other week,
+although that often stretched out to a month as
+landing-things and finishing-things is harder than it looks.
+This model of short-cycle releases is set to continue
+for the foreseeable future.&lt;/p&gt;
+
+    &lt;p&gt;The short-cycle release model also brings “things land when they land”
+with it: features get worked on, at varying speeds,
+and are merged to the &lt;em&gt;calamares&lt;/em&gt; branch when they are ready.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Recent releases were a very mixed bag, so there’s been a lot
+more testing added recently to try to avoid that. Integration
+testing, by the distro’s that use Calamares, remains essential though.
+I’d like to particularly thank KaOS, Manjaro and neon for their
+bug reports.&lt;/li&gt;
+  &lt;li&gt;Most recently we’ve had a lot of internal changes that aren’t
+immediately visible for the end-user: configuration files
+have been cleaned up, new configuration options added, and 
+the licensing of the whole codebase has been checked.&lt;/li&gt;
+  &lt;li&gt;Upcoming releases will continue the work on QML modules, thanks
+to KaOS, and user-interface improvements requested by various
+downstream distro’s.&lt;/li&gt;
+  &lt;li&gt;New translations continue to come in, with Telugu now on the roster.&lt;/li&gt;
+  &lt;li&gt;Tidying up partitioning remains a big issue, as does rootless operation
+(which is also necessary for better accessibility).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Overall, the plan is “steady as she goes” for the next quarter,
+with the possibility of source-incompatible Calamares 3.3 branch
+slowly growing.&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">COVID-19 continues to hold much of the world in its grip, while Calamares development continues inside. In previous years there has been a “Calamares Summer Plan” so let’s continue with that in spite of everything.</summary></entry><entry><title type="html">Calamares 3.2.29 released</title><link href="http://localhost:4000/calamares-3.2.29-is-out/" rel="alternate" type="text/html" title="Calamares 3.2.29 released" /><published>2020-08-20T00:00:00+02:00</published><updated>2020-08-20T00:00:00+02:00</updated><id>http://localhost:4000/calamares-3.2.29-is-out</id><content type="html" xml:base="http://localhost:4000/calamares-3.2.29-is-out/">&lt;p&gt;In some ways, you could call this 3.2.28.4, except there’s some important new functionality regarding progress reporting. 
+One regression in user-group settings has been fixed (thanks to Asif for reporting it).
+We’re now at
+&lt;strong&gt;Calamares 3.2.29&lt;/strong&gt;. This is a somewhat regular features-and-fixes release in the
+Calamares 3.2 series.&lt;/p&gt;
+
+&lt;p&gt;Calamares is a distribution-independent system installer, with an advanced
+partitioning feature for both manual and automated partitioning operations.
+Calamares is designed to be customizable by distribution maintainers without
+need for cumbersome patching, thanks to third party branding and external
+modules support.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;This release contains contributions from (alphabetically by first name):&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Asif Mahmud Shimon (new contributor! hi!)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;core&quot;&gt;Core&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Edge case in extracting string-lists from YAML, reported and fixed
+by Asif (#1491).&lt;/li&gt;
+  &lt;li&gt;Progress reporting is now more flexible. Modules can have a weight
+assigned to them in the descriptor; module instances can have a weight
+assigned which overrides the module descriptor. When jobs are run
+for a module instance, the jobs report progress pro-rated by the
+module’s weight. Or in other words, it is now possible to tweak
+the amount of the overall progress bar that different modules fill.
+The default settings give unpackfs a weight of 12. (#1176)&lt;/li&gt;
+  &lt;li&gt;The debug window currently does not show the right job queue.
+This will be fixed in an upcoming release.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;modules&quot;&gt;Modules&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;em&gt;users&lt;/em&gt; module did not read the &lt;em&gt;defaultGroups&lt;/em&gt; correctly.
+Fixed by the string-lists change mentioned above.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;gpg-signatures&quot;&gt;GPG Signatures&lt;/h2&gt;
+
+&lt;p&gt;This release has &lt;strong&gt;one&lt;/strong&gt; GPG signatures attached on the GitHub releases
+page. This uses the new signing key, valid until 2022 and introduced for Calamares 3.2.27.&lt;/p&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;If you experience an issue with Calamares, please tell us all about it
+on the &lt;a href=&quot;https://github.com/calamares/calamares/issues&quot;&gt;&lt;strong&gt;Calamares issue tracker&lt;/strong&gt;&lt;/a&gt;. For a full change list, or
+the full list of &lt;a href=&quot;https://github.com/calamares/calamares/issues?q=milestone%3Av3.2.29&quot;&gt;issues closed&lt;/a&gt; with this release, please see the
+Calamares code repository.&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">In some ways, you could call this 3.2.28.4, except there’s some important new functionality regarding progress reporting. One regression in user-group settings has been fixed (thanks to Asif for reporting it). We’re now at Calamares 3.2.29. This is a somewhat regular features-and-fixes release in the Calamares 3.2 series.</summary></entry><entry><title type="html">Calamares 3.2.28.3 released</title><link href="http://localhost:4000/calamares-3.2.28.3-is-out/" rel="alternate" type="text/html" title="Calamares 3.2.28.3 released" /><published>2020-08-18T00:00:00+02:00</published><updated>2020-08-18T00:00:00+02:00</updated><id>http://localhost:4000/calamares-3.2.28.3-is-out</id><content type="html" xml:base="http://localhost:4000/calamares-3.2.28.3-is-out/">&lt;p&gt;Third time is the charm. Thanks to careful bug reports from Marco Obaid,
+on regressions in Calamares 3.2.28.1 and .2, we’re now at
+&lt;strong&gt;Calamares 3.2.28.3&lt;/strong&gt;. This version fixes regressions in the previous release.&lt;/p&gt;
+
+&lt;p&gt;Calamares is a distribution-independent system installer, with an advanced
+partitioning feature for both manual and automated partitioning operations.
+Calamares is designed to be customizable by distribution maintainers without
+need for cumbersome patching, thanks to third party branding and external
+modules support.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;This is a hotfix release for #1489 and #1488. Reported by Marco Obaid.&lt;/p&gt;
+
+&lt;h2 id=&quot;gpg-signatures&quot;&gt;GPG Signatures&lt;/h2&gt;
+
+&lt;p&gt;This release has &lt;strong&gt;one&lt;/strong&gt; GPG signatures attached on the GitHub releases
+page. This uses the new signing key, valid until 2022 and introduced for Calamares 3.2.27.&lt;/p&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;If you experience an issue with Calamares, please tell us all about it
+on the &lt;a href=&quot;https://github.com/calamares/calamares/issues&quot;&gt;&lt;strong&gt;Calamares issue tracker&lt;/strong&gt;&lt;/a&gt;. For a full change list, or
+the full list of &lt;a href=&quot;https://github.com/calamares/calamares/issues?q=milestone%3Av3.2.28&quot;&gt;issues closed&lt;/a&gt; with this release, please see the
+Calamares code repository.&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">Third time is the charm. Thanks to careful bug reports from Marco Obaid, on regressions in Calamares 3.2.28.1 and .2, we’re now at Calamares 3.2.28.3. This version fixes regressions in the previous release.</summary></entry><entry><title type="html">Calamares 3.2.28.1 released</title><link href="http://localhost:4000/calamares-3.2.28.1-is-out/" rel="alternate" type="text/html" title="Calamares 3.2.28.1 released" /><published>2020-08-10T00:00:00+02:00</published><updated>2020-08-10T00:00:00+02:00</updated><id>http://localhost:4000/calamares-3.2.28.1-is-out</id><content type="html" xml:base="http://localhost:4000/calamares-3.2.28.1-is-out/">&lt;p&gt;As an illustration that releasing under time pressure and late at night is
+not a good idea, &lt;strong&gt;Calamares 3.2.28.1&lt;/strong&gt; follows hot on the heels of
+3.2.28. This version fixes regressions in the previous release.&lt;/p&gt;
+
+&lt;p&gt;Calamares is a distribution-independent system installer, with an advanced
+partitioning feature for both manual and automated partitioning operations.
+Calamares is designed to be customizable by distribution maintainers without
+need for cumbersome patching, thanks to third party branding and external
+modules support.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;This is a hotfix release for #1482 and #1483, where no user was
+created during installation and a chmod was failing (both resulting in
+a failed installation). Reported by Jonathan Riddell.&lt;/p&gt;
+
+&lt;p&gt;With incidental improvements in SPDX tagging (code licensing)
+and some new icon options for the welcomeq and localeq modules.&lt;/p&gt;
+
+&lt;h2 id=&quot;gpg-signatures&quot;&gt;GPG Signatures&lt;/h2&gt;
+
+&lt;p&gt;This release has &lt;strong&gt;one&lt;/strong&gt; GPG signatures attached on the GitHub releases
+page. This uses the new signing key, valid until 2022 and introduced for Calamares 3.2.27.&lt;/p&gt;
+
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+
+&lt;p&gt;If you experience an issue with Calamares, please tell us all about it
+on the &lt;a href=&quot;https://github.com/calamares/calamares/issues&quot;&gt;&lt;strong&gt;Calamares issue tracker&lt;/strong&gt;&lt;/a&gt;. For a full change list, or
+the full list of &lt;a href=&quot;https://github.com/calamares/calamares/issues?q=milestone%3Av3.2.28&quot;&gt;issues closed&lt;/a&gt; with this release, please see the
+Calamares code repository.&lt;/p&gt;</content><author><name>Your Name</name></author><summary type="html">As an illustration that releasing under time pressure and late at night is not a good idea, Calamares 3.2.28.1 follows hot on the heels of 3.2.28. This version fixes regressions in the previous release.</summary></entry></feed>
