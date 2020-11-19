@@ -10,8 +10,8 @@ header:
       url: "#one"
     - label: "<i class='fas fa-image'></i> Gallery"
       url: "#gallery"
-    - label: "<i class='fas fa-download'></i> Download"
-      url: "https://github.com/calamares/calamares/releases/"
+    - label: "<i class='far fa-newspaper'></i> Latest News "
+      url: "#news"
 caption: "Locale Module"
 excerpt: "The universal installer framework. Calamares aims to be easy, usable, beautiful, pragmatic, inclusive and distribution-agnostic"
 intro:
@@ -88,13 +88,17 @@ gallery:
     title: "Image 12 title caption"
 ---
 
+<div class="feature__wrapper feature__item--center">
+    <a href="{{ site.data.latest_release.tarball_url }}" class="btn btn--primary"><i class='fas fa-download'></i> Download {{site.data.latest_release.tag_name}}</a>
+</div>
+
 {% include feature_row id="intro" type="center" %}
 
 <div id="one">
   {% include feature_row %}
 </div>
 
-<div class="feature__wrapper">
+<div class="feature__wrapper" id="news">
   <h2>Latest News Article:</h2>
   {% assign post = site.posts.first %}
   {% assign content = post.excerpt %}
@@ -107,4 +111,3 @@ gallery:
   <h1>Gallery</h1>
   {% include gallery %}
 </div>
-

@@ -10,8 +10,6 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -216,6 +214,7 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-get-json
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
@@ -279,3 +278,7 @@ defaults:
       comments: # true
       share: true
       related: true
+
+jekyll_get_json:
+  - data: latest_release
+    json: "https://api.github.com/repos/calamares/calamares/releases/latest"
