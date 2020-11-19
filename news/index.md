@@ -1,18 +1,14 @@
 ---
 layout: post
-title: News
+title: 
 permalink: /news/
 ---
 
-<h2>Latest News Article:</h2>
-  {% assign post = site.posts.first %}
-  {% assign content = post.content %}
-<h4 class="entry-title">
-{% if page.title %}
-    <a href="{{ root_url }}{{ page.url }}">{{ page.title }}</a>
-{% endif %}
+{% assign post = site.posts.first %}
+{% assign content = post.content %}
+<h1 class="entry-title">
 {% if post.title %}
-    <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
+    {{ post.title }}
 {% endif %}
-</h4>
-<div class="entry-content">{{ content | split:'<!--more-->' }}</div>
+</h1>
+{{ content }}
