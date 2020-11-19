@@ -278,7 +278,3 @@ defaults:
       comments: # true
       share: true
       related: true
-
-jekyll_get_json:
-  - data: latest_release
-    json: "https://api.github.com/repos/calamares/calamares/releases/latest"
