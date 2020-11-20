@@ -68,8 +68,8 @@ $text-color: $dark-gray !default;
 $muted-text-color: mix(#fff, $text-color, 20%) !default;
 $border-color: $lighter-gray !default;
 $form-background-color: $lighter-gray !default;
-$footer-background-color: $lighter-gray !default;
-$masthead-background-color: #0180d3 !default;
+$footer-background-color: mix(#fff, #2E2E2E, 60%) !default;
+$masthead-background-color: #2E2E2E !default;
 
 $primary-color: #6f777d !default;
 $success-color: #3fa63f !default;
@@ -115,8 +115,8 @@ $xing-color: #006567 !default;
 $link-color: mix(#000, $info-color, 20%) !default;
 $link-color-hover: mix(#000, $link-color, 25%) !default;
 $link-color-visited: mix(#fff, $link-color, 15%) !default;
-$masthead-link-color: $primary-color !default;
-$masthead-link-color-hover: mix(#000, $primary-color, 25%) !default;
+$masthead-link-color: mix(#fff, $primary-color, 50%) !default;
+$masthead-link-color-hover: mix(#fff, $primary-color, 75%) !default;
 $navicon-link-color-hover: mix(#fff, $primary-color, 75%) !default;
 
 /* syntax highlighting (base16) */

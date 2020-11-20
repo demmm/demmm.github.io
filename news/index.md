@@ -1,6 +1,10 @@
 ---
 layout: news
-title: 
+title: News
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.7"
+  overlay_image: /assets/images/banner.png
 permalink: /news/
 ---
 
