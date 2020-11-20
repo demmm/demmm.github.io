@@ -108,7 +108,11 @@ gallery:
   <h2>Latest News Article:</h2>
   {% assign post = site.posts.first %}
   {% assign content = post.excerpt %}
-  {% include post_detail.html %}
-  <nav><a href="{{ root_url }}{{ post.url }}" class="btn btn--inverse">Read More</a>
-  <a href="/news" class="btn btn--inverse">All News</a></nav>
+  <h4 class="entry-title">
+    {% if post.title %}
+        {{ post.title }}
+    {% endif %}
+    </h4>
+<div class="entry-content">{{ content | split:'<!--more-->' }}</div>
+  <a href="{{ root_url }}{{ post.url }}" class="btn btn--inverse">Read More</a>
 </div>
