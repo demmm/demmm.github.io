@@ -8,5 +8,5 @@ main:
     url: "https://github.com/calamares/calamares"
   - title: "<i class='fas fa-bug'></i> Issues"
     url: "https://github.com/calamares/calamares/issues"
-  - title: "<i class='fab fa-wikipedia-w'></i> Wiki"
+  - title: "<i class='fas fa-graduation-cap'></i> Wiki"
     url: "https://github.com/calamares/calamares/wiki"
