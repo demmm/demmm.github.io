@@ -3,7 +3,7 @@ layout: splash
 title: About
 header:
   overlay_color: "#000"
-  overlay_filter: "0.7"
+  overlay_filter: "0.8"
   overlay_image: /images/banner2.png
 permalink: /about/
 published: true
