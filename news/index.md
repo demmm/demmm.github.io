@@ -3,8 +3,8 @@ layout: news
 title: News
 header:
   overlay_color: "#000"
-  overlay_filter: "0.7"
-  overlay_image: /assets/images/banner.png
+  overlay_filter: "0.8"
+  overlay_image: /images/banner2.png
 permalink: /news/
 ---
 
