@@ -524,6 +524,11 @@
 .News-nav a {
   border: 0;
   font-size: 1.0em;
+  color: $dark-gray;
+  
+  &:hover {
+    color: $link-color-hover;
+  }
 }
 // End News-nav
 /*
