@@ -21,10 +21,7 @@ permalink: /news/
 {{ content }}
 
 <div>
-  {% if page.next.url %}
-    <a class="btn btn--inverse" href="{{page.next.url}}">Back</a>
-  {% endif %}
-  {% if page.previous.url %}
-    <a class="btn btn--inverse" href="{{page.previous.url}}">Next</a>
-  {% endif %}
+{% for post in site.posts offset:1 limit:1%}
+    <a class="btn btn--inverse" href="{{ root_url }}{{ post.url }}">Next</a>
+{% endfor %}
 </div>
