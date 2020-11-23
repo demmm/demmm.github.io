@@ -97,14 +97,16 @@ gallery:
 </div>
 
 <div class="feature__wrapper offset" id="news">
-  <h2>Latest News Article:</h2>
-  {% assign post = site.posts.first %}
+  <h2>Latest News:</h2>
+  {% assign index = true %}
+  {% for post in site.posts limit:3 %}
   {% assign content = post.excerpt %}
   <h4 class="entry-title">
     {% if post.title %}
         {{ post.title }}
     {% endif %}
-    </h4>
-<div class="entry-content">{{ content | split:'<!--more-->' }}</div>
+  </h4>
+  <div class="entry-content">{{ content | split:'<!--more-->' }}</div>
   <a href="{{ root_url }}{{ post.url }}" class="btn btn--inverse">Read More</a>
+  {% endfor %}
 </div>
