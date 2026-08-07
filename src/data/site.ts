@@ -25,7 +25,7 @@ export const nav = [
 
 export const hero = {
   video: "/hochk3.mp4",
-  poster: "/images/hero_home2.jpg",
+  poster: "/images/hero_home2.webp",
   eyebrow: "Salzburgerland · Ski Amadé · 2941m",
   title: "Welkom in Mühlbach",
   subtitle: "Hochkönig Ferien in Ski Amadé.",
