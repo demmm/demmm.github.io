@@ -1,0 +1,221 @@
+---
+import { contact } from "../data/site";
+---
+
+<section class="section" id="contact">
+  <div class="container contact">
+    <div class="contact__form-wrap">
+      <p class="eyebrow">Contact</p>
+      <h2>Neem contact op</h2>
+      <p class="contact__lead">
+        Wilt u meer weten of heeft u vragen over beschikbaarheid? Vul het formulier in, we reageren zo snel mogelijk.
+      </p>
+
+      <!--
+        This is a static form. Point `action` at your own form handler
+        (e.g. Formspree, Resend, a serverless function) or wire up an
+        Astro API route — the old WPForms + booking-plugin backend is gone.
+      -->
+      <form class="contact-form" method="POST" action="https://api.web3forms.com/submit">
+        <input type="hidden" name="access_key" value="82a97ba3-d68b-404a-a9c5-3633eccbcc3c">
+        <input type="hidden" name="subject" value="New Submission from Hochkoenig Ferien">
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        <div class="contact-form__row">
+          <label>
+            Voornaam *
+            <input type="text" name="first_name" required />
+          </label>
+          <label>
+            Achternaam *
+            <input type="text" name="last_name" required />
+          </label>
+        </div>
+
+        <label>
+          Email *
+          <input type="email" name="email" required />
+        </label>
+
+        <label>
+          Uw bericht
+          <textarea name="message" rows="5"></textarea>
+        </label>
+
+        <fieldset class="contact-form__radio">
+          <legend>Beantwoorden via</legend>
+          <label><input type="radio" name="reply_via" value="email" checked /> Email</label>
+          <label><input type="radio" name="reply_via" value="phone" /> Telefonisch</label>
+        </fieldset>
+
+        <label class="contact-form__checkbox">
+          <input type="checkbox" name="gdpr" required />
+          Ik stem ermee in dat deze site mijn ingediende informatie opslaat zodat zij op mijn vraag kunnen reageren. *
+        </label>
+
+        <button type="submit" class="btn btn--solid">Verzenden</button>
+      </form>
+    </div>
+
+    <div class="contact__side">
+      <div class="contact__map">
+        <iframe
+          src={contact.mapEmbed}
+          title="Locatie op de kaart"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+
+      <div class="contact__details">
+        <h3>{contact.name}</h3>
+        <p>&#8982; {contact.address}</p>
+        <p><a href={`tel:${contact.phone.replace(/\s+/g, "")}`}>&#9743 {contact.phone}</a></p>
+        <p><a href={`mailto:${contact.email}`}>&#9993; {contact.email}</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  .contact__lead {
+    color: var(--text-soft);
+    max-width: 46ch;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-top: 1.75rem;
+  }
+
+  .contact-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--pine);
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--text);
+    padding: 0.75em 0.9em;
+    border: 1px solid var(--stone-dark);
+    border-radius: var(--radius);
+    background: var(--snow);
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--pine);
+  }
+
+  .contact-form__radio {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .contact-form__radio legend {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--pine);
+    padding: 0;
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-form__radio label {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4em;
+    text-transform: none;
+    font-family: var(--font-body);
+    color: var(--text-soft);
+    font-size: 0.9rem;
+  }
+
+  .contact-form__checkbox {
+    flex-direction: row !important;
+    align-items: flex-start;
+    gap: 0.6em !important;
+    text-transform: none;
+    font-family: var(--font-body);
+    color: var(--text-soft);
+    font-size: 0.85rem;
+  }
+
+  .contact-form button {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .contact__map {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .contact__map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .contact__details {
+    margin-top: 1.5rem;
+  }
+
+  .contact__details p {
+    color: var(--text-soft);
+    margin: 0.3em 0;
+  }
+
+  .contact__details a {
+    text-decoration: none;
+    color: var(--pine);
+  }
+
+  .contact__details a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 860px) {
+    .contact,
+    .contact-form__row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script is:inline>
+    window.onload = function() {
+        // Reset the form fields when the page loads
+        document.getElementById("contact").reset();
+    };
+</script>

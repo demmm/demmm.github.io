@@ -1,0 +1,61 @@
+---
+interface Props {
+  items: string[];
+  compact?: boolean;
+}
+
+const { items, compact = false } = Astro.props;
+---
+
+<ul class:list={["signposts", { compact }]}>
+  {
+    items.map((item) => (
+      <li class="signpost">
+        <span class="signpost__plank">{item}</span>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .signposts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .signpost {
+    display: flex;
+  }
+
+  .signpost__plank {
+    position: relative;
+    background: var(--marker);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    line-height: 1.3;
+    padding: 0.65em 1.3em 0.65em 1em;
+    border: 1px solid var(--marker-dark);
+    border-radius: 1px;
+  }
+
+  .signpost__plank::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -0.55em;
+    transform: translateY(-50%);
+    border-top: 0.85em solid transparent;
+    border-bottom: 0.85em solid transparent;
+    border-left: 0.6em solid var(--marker);
+  }
+
+  .compact .signpost__plank {
+    font-size: 0.76rem;
+    padding: 0.5em 1.1em 0.5em 0.85em;
+  }
+</style>

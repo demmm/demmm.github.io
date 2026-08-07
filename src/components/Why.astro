@@ -1,0 +1,85 @@
+---
+import { skiSection, summerSection, hochkoenigCard, nearby } from "../data/site";
+import StoryBlock from "./StoryBlock.astro";
+import SignpostList from "./SignpostList.astro";
+import ContourDivider from "./ContourDivider.astro";
+---
+
+<section class="section" id="waarom">
+  <div class="container">
+    <StoryBlock {...skiSection} />
+    <StoryBlock {...summerSection} reverse />
+  </div>
+</section>
+
+<div class="section--dark">
+  <ContourDivider tone="ink" flip />
+  <div class="container card-section">
+    <div class="card-section__intro">
+      <p class="eyebrow">Inbegrepen bij uw verblijf</p>
+      <h2>{hochkoenigCard.title}</h2>
+      <p>{hochkoenigCard.intro}</p>
+      <a class="card-section__link" href={hochkoenigCard.link.href} target="_blank" rel="noopener">
+        {hochkoenigCard.link.label} →
+      </a>
+    </div>
+    <SignpostList items={hochkoenigCard.benefits} />
+  </div>
+
+  <div class="container nearby">
+    <div>
+      <h3>Activiteiten in de omgeving</h3>
+      <SignpostList items={nearby.activities} compact />
+    </div>
+    <div>
+      <h3>Bezienswaardigheden</h3>
+      <SignpostList items={nearby.sights} compact />
+    </div>
+  </div>
+  <ContourDivider tone="ink" />
+</div>
+
+<style>
+  .card-section {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    padding-block: clamp(3rem, 5vw, 4.5rem) 2.5rem;
+  }
+
+  .card-section__intro p:not(.eyebrow) {
+    color: var(--text-on-dark-soft);
+  }
+
+  .card-section__link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--marker);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+  }
+
+  .card-section__link:hover {
+    text-decoration: underline;
+  }
+
+  .nearby {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    padding-block: 1rem clamp(3rem, 5vw, 4.5rem);
+  }
+
+  .nearby h3 {
+    color: var(--text-on-dark);
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 860px) {
+    .card-section,
+    .nearby {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

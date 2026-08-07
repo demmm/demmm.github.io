@@ -1,0 +1,164 @@
+---
+import { stay } from "../data/site";
+---
+
+<section class="section section--stone" id="verblijf">
+  <div class="container stay">
+    <div class="stay__main">
+      <p class="eyebrow">Het appartement</p>
+      <h2>Praktische informatie</h2>
+
+      <dl class="stay__facts">
+        <div>
+          <dt>Volwassenen</dt>
+          <dd>{stay.details.adults}</dd>
+        </div>
+        <div>
+          <dt>Kinderen</dt>
+          <dd>{stay.details.children}</dd>
+        </div>
+        <div>
+          <dt>Type bed</dt>
+          <dd>{stay.details.bed}</dd>
+        </div>
+      </dl>
+
+      <h3>Faciliteiten</h3>
+      <ul class="stay__facilities">
+        {stay.facilities.map((f) => <li>{f}</li>)}
+      </ul>
+
+      <p class="stay__note">{stay.note}</p>
+    </div>
+
+    <aside class="stay__rules">
+      <h3>Voorwaarden</h3>
+      <dl>
+        {
+          stay.rules.map((r) => (
+            <div class="stay__rule">
+              <dt>{r.label}</dt>
+              <dd>{r.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <a class="btn btn--solid stay__cta" href="#contact">Vraag beschikbaarheid aan</a>
+      <a class="stay__link" href={stay.link.href} target="_blank" rel="noopener">
+        {stay.link.label} →
+      </a>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .stay {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  .stay__facts {
+    display: flex;
+    gap: 2rem;
+    margin: 1.75rem 0;
+    padding: 0;
+  }
+
+  .stay__facts dt {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--pine);
+  }
+
+  .stay__facts dd {
+    margin: 0.2rem 0 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.6rem;
+  }
+
+  .stay__facilities {
+    columns: 2;
+    gap: 1.5rem;
+    padding-left: 1.1rem;
+    color: var(--text-soft);
+    font-size: 0.94rem;
+  }
+
+  .stay__facilities li {
+    break-inside: avoid;
+    margin-bottom: 0.4rem;
+  }
+  
+  .stay__link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--marker);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+  }
+
+  .stay__note {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    border-top: 1px solid var(--stone-dark);
+    padding-top: 1.25rem;
+  }
+
+  .stay__rules {
+    background: var(--ink);
+    color: var(--text-on-dark);
+    padding: 2rem 1.85rem;
+    border-radius: var(--radius);
+    height: fit-content;
+  }
+
+  .stay__rules h3 {
+    color: var(--text-on-dark);
+  }
+
+  .stay__rules dl {
+    margin: 0;
+  }
+
+  .stay__rule {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.6rem;
+    border-bottom: 1px solid rgba(238, 241, 238, 0.12);
+    font-size: 0.88rem;
+  }
+
+  .stay__rule dt {
+    color: var(--text-on-dark-soft);
+  }
+
+  .stay__rule dd {
+    margin: 0;
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+  }
+
+  .stay__cta {
+    margin-top: 1.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media (max-width: 900px) {
+    .stay {
+      grid-template-columns: 1fr;
+    }
+
+    .stay__facilities {
+      columns: 1;
+    }
+  }
+</style>

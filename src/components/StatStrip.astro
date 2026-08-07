@@ -1,0 +1,76 @@
+---
+import { stats } from "../data/site";
+---
+
+<div class="stat-strip">
+  <div class="container stat-strip__inner">
+    {
+      stats.map((s) => (
+        <div class="stat-strip__item">
+          <span class="stat-strip__value">
+            {s.value}<span class="stat-strip__unit">{s.unit}</span>
+          </span>
+          <span class="stat-strip__label">{s.label}</span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .stat-strip {
+    background: var(--marker);
+    color: var(--ink);
+  }
+
+  .stat-strip__inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding-block: 1.6rem;
+  }
+
+  .stat-strip__item {
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(16, 32, 46, 0.25);
+    padding-left: 1.1rem;
+  }
+
+  .stat-strip__item:first-child {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .stat-strip__value {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.4rem);
+    line-height: 1;
+  }
+
+  .stat-strip__unit {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    margin-left: 0.15em;
+  }
+
+  .stat-strip__label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.35em;
+  }
+
+  @media (max-width: 720px) {
+    .stat-strip__inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-strip__item:nth-child(3) {
+      border-left: none;
+      padding-left: 0;
+    }
+  }
+</style>

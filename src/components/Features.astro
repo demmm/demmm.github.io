@@ -1,0 +1,73 @@
+---
+import { features } from "../data/site";
+---
+
+<section class="section" id="kenmerken">
+  <div class="container">
+    <p class="eyebrow">Kenmerken</p>
+    <h2>Locatie, skigebied & appartement</h2>
+
+    <div class="feature-grid">
+      {
+        features.map((f, i) => (
+          <article class="feature-card">
+            <span class="feature-card__index">{String(i + 1).padStart(2, "0")}</span>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+            <p class="feature-card__meta">{f.meta}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .feature-card {
+    background: var(--stone);
+    padding: 2rem 1.75rem;
+    border-radius: var(--radius);
+    position: relative;
+    box-shadow: var(--shadow-card);
+  }
+
+  .feature-card__index {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--marker-dark);
+    letter-spacing: 0.08em;
+  }
+
+  .feature-card h3 {
+    margin-top: 0.6rem;
+  }
+
+  .feature-card p {
+    color: var(--text-soft);
+    font-size: 0.95rem;
+  }
+
+  .feature-card__meta {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--pine);
+    margin-bottom: 0;
+    border-top: 1px solid var(--stone-dark);
+    padding-top: 0.9rem;
+  }
+
+  @media (max-width: 900px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

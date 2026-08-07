@@ -1,0 +1,46 @@
+---
+import { videoSection } from "../data/site";
+---
+
+<section class="section section--dark" id="video">
+  <div class="container video-section">
+    <p class="eyebrow">Video</p>
+    <h2>{videoSection.title}</h2>
+    <p class="video-section__lead">Een impressie van Salzburgerland, Mühlbach en het Hochkönig skigebied.</p>
+
+    <div class="video-section__frame">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${videoSection.youtubeId}`}
+        title={videoSection.title}
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<style>
+  .video-section__lead {
+    color: var(--text-on-dark-soft);
+    max-width: 46ch;
+  }
+
+  .video-section__frame {
+    margin-top: 2rem;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .video-section__frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+</style>

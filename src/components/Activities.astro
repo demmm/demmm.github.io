@@ -1,0 +1,64 @@
+---
+import { activities } from "../data/site";
+---
+
+<section class="section" id="activiteiten">
+  <div class="container">
+    <p class="eyebrow">Activiteiten</p>
+    <h2>Zomer & winter, één regio</h2>
+
+    <div class="activities-grid">
+      {
+        activities.map((a) => (
+          <article class="activity">
+            <h3>{a.title}</h3>
+            <p>{a.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .activities-grid {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--stone-dark);
+    border: 1px solid var(--stone-dark);
+  }
+
+  .activity {
+    background: var(--snow);
+    padding: 2rem 1.75rem;
+  }
+
+  .activity h3 {
+    position: relative;
+    padding-bottom: 0.6rem;
+  }
+
+  .activity h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 2.2rem;
+    height: 3px;
+    background: var(--marker);
+  }
+
+  .activity p {
+    color: var(--text-soft);
+    font-size: 0.94rem;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 900px) {
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

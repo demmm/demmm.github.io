@@ -1,0 +1,106 @@
+---
+import { hero } from "../data/site";
+import ContourDivider from "./ContourDivider.astro";
+---
+
+<section class="hero" id="top">
+  <video
+    class="hero__media"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster={hero.poster}
+  >
+    <source src={hero.video} type="video/mp4" />
+  </video>
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <div class="container hero__content">
+    <p class="eyebrow">{hero.eyebrow}</p>
+    <h1>{hero.title}</h1>
+    <p class="hero__subtitle">{hero.subtitle}</p>
+    <div class="hero__actions">
+      <a class="btn btn--solid" href="#galerij">Bekijk het appartement</a>
+      <a class="btn hero__ghost" href="#contact">Neem contact op</a>
+    </div>
+  </div>
+
+  <div class="hero__foot">
+    <ContourDivider tone="snow" />
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: flex-end;
+    color: var(--text-on-dark);
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(16, 32, 46, 0.55) 0%,
+      rgba(16, 32, 46, 0.25) 35%,
+      rgba(16, 32, 46, 0.85) 100%
+    );
+  }
+
+  .hero__content {
+    position: relative;
+    padding-block: 6rem 5rem;
+    max-width: 640px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 2rem + 3.5vw, 4.6rem);
+    color: var(--text-on-dark);
+  }
+
+  .hero__subtitle {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+    color: var(--text-on-dark-soft);
+    max-width: 30ch;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.75rem;
+  }
+
+  .hero__ghost {
+    color: var(--text-on-dark);
+    border-color: rgba(238, 241, 238, 0.5);
+  }
+
+  .hero__ghost:hover {
+    background: var(--text-on-dark);
+    color: var(--ink);
+  }
+
+  .hero__foot {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+</style>

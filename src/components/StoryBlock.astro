@@ -1,0 +1,65 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+  image: string;
+  reverse?: boolean;
+}
+
+const { eyebrow, title, paragraphs, image, reverse = false } = Astro.props;
+---
+
+<div class:list={["story", { reverse }]}>
+  <div class="story__text">
+    <p class="eyebrow">{eyebrow}</p>
+    <h2>{title}</h2>
+    {paragraphs.map((p) => <p>{p}</p>)}
+  </div>
+  <div class="story__image">
+    <img src={image} alt={title} loading="lazy" />
+  </div>
+</div>
+
+<style>
+  .story {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+    padding-block: clamp(2.5rem, 4vw, 3.5rem);
+  }
+
+  .story.reverse {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .story.reverse .story__text {
+    order: 2;
+  }
+
+  .story__text p:not(.eyebrow) {
+    color: var(--text-soft);
+  }
+
+  .story__image img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+  }
+
+  @media (max-width: 860px) {
+    .story,
+    .story.reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .story.reverse .story__text {
+      order: 0;
+    }
+
+    .story__image {
+      order: -1;
+    }
+  }
+</style>

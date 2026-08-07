@@ -1,0 +1,165 @@
+---
+import { nav, site } from "../data/site";
+import Logo from '../assets/logo.png';
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="#top" class="brand">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">
+        <!--<span class="brand__name">{site.name}</span>
+        <span class="brand__place">Salzburgerland</span>-->
+        <img src={Logo.src} alt="Hochkönig Ferien" class="logo" width="180" height="50" />
+      </span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </label>
+
+    <nav class="site-nav" aria-label="Hoofdmenu">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <!--<a class="btn btn--solid nav-cta" href="#contact">Neem contact op</a>-->
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(16, 32, 46, 0.92);
+    backdrop-filter: blur(6px);
+    color: var(--text-on-dark);
+    border-bottom: 1px solid rgba(233, 226, 208, 0.12);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.9rem;
+    gap: 1rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .brand__mark {
+    color: var(--marker);
+    font-size: 1rem;
+  }
+
+  .brand__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .brand__name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+
+  .brand__place {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-on-dark-soft);
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .site-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.6rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-nav a {
+    text-decoration: none;
+    font-size: 0.92rem;
+    color: var(--text-on-dark-soft);
+    transition: color 0.2s ease;
+  }
+
+  .site-nav a:hover {
+    color: var(--marker);
+  }
+
+  .nav-cta {
+    color: var(--ink);
+    padding: 0.6em 1.1em;
+  }
+
+  .nav-toggle,
+  .nav-burger {
+    display: none;
+  }
+
+  @media (max-width: 860px) {
+    .nav-burger {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+      padding: 0.4rem;
+    }
+
+    .nav-burger span {
+      width: 22px;
+      height: 2px;
+      background: var(--text-on-dark);
+      display: block;
+    }
+
+    .site-nav {
+      position: absolute;
+      inset-inline: 0;
+      top: 100%;
+      background: var(--ink);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1.25rem clamp(1.25rem, 4vw, 2.5rem) 1.75rem;
+      border-bottom: 1px solid rgba(233, 226, 208, 0.12);
+      display: none;
+    }
+
+    .site-nav ul {
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .nav-cta {
+      margin-top: 1.1rem;
+    }
+
+    .nav-toggle:checked ~ .site-nav {
+      display: flex;
+    }
+  }
+</style>
