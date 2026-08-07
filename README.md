@@ -42,29 +42,3 @@ The Hochkönig Card benefits and nearby activities render as wooden
 trail-signpost placards, which is the one deliberate visual risk in the page;
 everything else stays quiet around it.
 
-## Images
-
-Gallery, hero, and story images are still hot-linked from the original
-WordPress media library (`hochkoenigferien.com/wp-content/uploads/...`) so the
-site works immediately without any asset migration. For a fully independent
-deploy:
-
-1. Download the images referenced in `src/data/site.ts` into `public/images/`.
-2. Update the `full` / `thumb` / `image` / `poster` / `video` paths in
-   `src/data/site.ts` to point at `/images/...` instead of the old domain.
-
-## Contact form
-
-The form in `src/components/Contact.astro` is currently static (`action="#"`,
-no backend) — the old site used WPForms. Wire it up to whichever handler you
-prefer:
-
-- [Formspree](https://formspree.io) / [Web3Forms](https://web3forms.com) — set
-  `action` to their endpoint, no server code needed.
-- An Astro API route (`src/pages/api/contact.ts`) if you want to send email
-  yourself (e.g. via Resend or SMTP).
-
-## Deploying
-
-Static output (`npm run build` → `dist/`) — deploy to Netlify, Vercel,
-Cloudflare Pages, GitHub Pages, or any static host.
