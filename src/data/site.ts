@@ -10,7 +10,6 @@ export const site = {
   description:
     "Luxe appartement voor 2 tot 6 personen in Mühlbach am Hochkönig, Salzburgerland — aan de voet van de Hochkönig (2941m), midden in Ski Amadé.",
   url: "https://hochkoenigferien.com",
-  ogImage: "../assets/images/hero_home2.webp",
 };
 
 export const nav = [

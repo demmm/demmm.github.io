@@ -11,12 +11,7 @@ import { contact } from "../data/site";
         Wilt u meer weten of heeft u vragen over beschikbaarheid? Vul het formulier in, we reageren zo snel mogelijk.
       </p>
 
-      <!--
-        This is a static form. Point `action` at your own form handler
-        (e.g. Formspree, Resend, a serverless function) or wire up an
-        Astro API route — the old WPForms + booking-plugin backend is gone.
-      -->
-      <form class="contact-form" method="POST" action="https://api.web3forms.com/submit">
+      <form id="contact-form" class="contact-form" method="POST" action="https://api.web3forms.com/submit">
         <input type="hidden" name="access_key" value="82a97ba3-d68b-404a-a9c5-3633eccbcc3c">
         <input type="hidden" name="subject" value="New Submission from Hochkoenig Ferien">
         <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
@@ -213,9 +208,9 @@ import { contact } from "../data/site";
   }
 </style>
 
-<script is:inline>
+<script>
     window.onload = function() {
         // Reset the form fields when the page loads
-        document.getElementById("contact").reset();
+        document.getElementById("contact-form").reset();
     };
 </script>
