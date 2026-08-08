@@ -1,6 +1,17 @@
 ---
 import { hero } from "../data/site";
 import ContourDivider from "./ContourDivider.astro";
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const images = import.meta.glob('../assets/images/*.{png,jpg,webp,gif}');
+let myImageMetadata = null;
+const posterUrl = hero.poster;
+
+if (images[posterUrl]) {
+  const module = await images[posterUrl]();
+  myImageMetadata = module.default;
+}
 ---
 
 <section class="hero" id="top">
@@ -10,7 +21,7 @@ import ContourDivider from "./ContourDivider.astro";
     muted
     loop
     playsinline
-    poster={hero.poster}
+    poster={posterUrl}
   >
     <source src={hero.video} type="video/mp4" />
   </video>

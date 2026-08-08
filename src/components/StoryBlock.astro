@@ -1,4 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { skiSection, summerSection } from '../data/site';
+
 interface Props {
   eyebrow: string;
   title: string;
@@ -8,6 +12,20 @@ interface Props {
 }
 
 const { eyebrow, title, paragraphs, image, reverse = false } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/*.{png,jpg,jpeg,gif}');
+const pathMap = {
+  winter: skiSection.image,
+  summer: summerSection.image
+};
+
+// Determine key based on reverse flag
+const key = reverse ? 'summer' : 'winter';
+const imagePath = pathMap[key];
+if (!images[imagePath]) {
+  throw new Error(`Image not found: ${imagePath}`);
+}
+const myImageModule = await images[imagePath]();
+const myImage = myImageModule.default;
 ---
 
 <div class:list={["story", { reverse }]}>
@@ -17,7 +35,7 @@ const { eyebrow, title, paragraphs, image, reverse = false } = Astro.props;
     {paragraphs.map((p) => <p>{p}</p>)}
   </div>
   <div class="story__image">
-    <img src={image} alt={title} loading="lazy" />
+    <Image src={myImage} alt={title} layout='constrained' width={600} height={600} />
   </div>
 </div>
 
@@ -43,7 +61,6 @@ const { eyebrow, title, paragraphs, image, reverse = false } = Astro.props;
   }
 
   .story__image img {
-    width: 100%;
     border-radius: var(--radius);
     box-shadow: var(--shadow-card);
   }

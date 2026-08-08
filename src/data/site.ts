@@ -10,7 +10,7 @@ export const site = {
   description:
     "Luxe appartement voor 2 tot 6 personen in Mühlbach am Hochkönig, Salzburgerland — aan de voet van de Hochkönig (2941m), midden in Ski Amadé.",
   url: "https://hochkoenigferien.com",
-  ogImage: "/images/hero_home2.jpg",
+  ogImage: "../assets/images/hero_home2.webp",
 };
 
 export const nav = [
@@ -25,7 +25,7 @@ export const nav = [
 
 export const hero = {
   video: "/hochk3.mp4",
-  poster: "/images/hero_home2.webp",
+  poster: "/src/assets/images/hero_home2.webp",
   eyebrow: "Salzburgerland · Ski Amadé · 2941m",
   title: "Welkom in Mühlbach",
   subtitle: "Hochkönig Ferien in Ski Amadé.",
@@ -67,7 +67,7 @@ export const skiSection = {
     "Behalve de 120 kilometer piste zijn er drie snowparken en een funslope. Tussen Dienten en Mühlbach ligt, met 1,8 km lengte, een van de langste snowparks van Oostenrijk. Voor kleine kinderen en beginners is er het kleinere, overzichtelijke gebied Hochkeil met ruim 10 pistekilometers en een eigen, goedkopere skipas.",
     "Hochkönig maakt deel uit van Ski Amadé, het grootste skipasverbond van Oostenrijk met 760 km aan pistes — ook te gebruiken in Flachau, het Gasteinertal of Schladming.",
   ],
-  image: "/images/hinterthal.jpg",
+  image: "/src/assets/images/hinterthal.jpg",
 };
 
 export const summerSection = {
@@ -78,7 +78,7 @@ export const summerSection = {
     "Vanaf ons appartement begint het wandelen of fietsen direct. De regio heeft 340 km aan duidelijk gemarkeerde wandelpaden. Een aanrader: het Matrashaus op 2941 meter, waar je kunt overnachten en genieten van de zonsondergang over de Alpen. Of de Majestätische Weitwanderweg, een meerdaagse tocht van 73 km.",
     "Op 25 minuten rijden ligt misschien wel de mooist gelegen golfbaan van de Alpen: Golfclub Urslautal. Mühlbach wordt ook wel het “Bergdorf der Tiere” genoemd — bezoek een van de 6 gratis kinderboerderijen. Bij Toni's Almspielplatz kunnen kinderen zich uitleven op water- en zandspeeltoestellen, een klimtoren en een kinderwandelpad geschikt voor kinderwagens.",
   ],
-  image: "/images/hochkoenig-summer.jpg",
+  image: "/src/assets/images/hochkoenig-summer.jpg",
 };
 
 export const hochkoenigCard = {
@@ -159,8 +159,7 @@ export const gallery = [
   { src: "ski-amade", alt: "Ski Amadé" },
 ].map((g) => ({
   ...g,
-  full: `/images/${g.src}.jpg`,
-  thumb: `/images/thumbs/${g.src}-480x300.jpg`,
+  full: `/src/assets/gallery/${g.src}.jpg`,
 }));
 
 export const activities = [
