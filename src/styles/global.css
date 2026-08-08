@@ -31,7 +31,7 @@
   --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --container: 1180px;
-  --radius: 10px;
+  --radius: 2px;
   --shadow-card: 0 18px 40px -22px rgba(16, 32, 46, 0.35);
 }
 

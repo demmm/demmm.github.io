@@ -7,10 +7,10 @@ import Logo from '../assets/logo.png';
   <div class="container site-header__inner">
     <a href="#top" class="brand">
       <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__image"><img src={Logo.src} alt="Hochkönig Ferien" class="logo" width="130" height="40" /></span>
       <span class="brand__text">
-        <!--<span class="brand__name">{site.name}</span>
-        <span class="brand__place">Salzburgerland</span>-->
-        <img src={Logo.src} alt="Hochkönig Ferien" class="logo" width="180" height="50" />
+        <span class="brand__name">{site.name}</span>
+        <!--<span class="brand__place">Salzburgerland</span>-->
       </span>
     </a>
 
@@ -74,8 +74,10 @@ import Logo from '../assets/logo.png';
 
   .brand__name {
     font-family: var(--font-display);
-    font-weight: 600;
+    font-weight: 400;
     font-size: 1.15rem;
+    position: relative;
+    left: -80px;
   }
 
   .brand__place {
