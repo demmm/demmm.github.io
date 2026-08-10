@@ -31,6 +31,13 @@ public/
   favicon.svg
 ```
 
+## Instructions
+
+To adjust the gallery images, upload new images to src/assets/gallery, 
+any image there is automatically added to the layout.
+All text is combined in one file, src/data/site.ts with clearly marked 
+sections, so all edits can be done in one place.
+
 ## Design
 
 The palette and type system are grounded in the region rather than a generic
