@@ -7,7 +7,7 @@ import Logo from '../assets/logo.png';
   <div class="container site-header__inner">
     <a href="#top" class="brand">
       <span class="brand__mark" aria-hidden="true"></span>
-      <span class="brand__image"><img src={Logo.src} alt="Hochkönig Ferien" class="logo" width="130" height="40" /></span>
+      <span class="brand__image"><img src={Logo.src} alt="Hochkönig Ferien" class="logo" width="170" height="60" /></span>
       <span class="brand__text">
         <span class="brand__name">{site.name}</span>
         <!--<span class="brand__place">Salzburgerland</span>-->
@@ -24,7 +24,12 @@ import Logo from '../assets/logo.png';
         {
           nav.map((item) => (
             <li>
-              <a href={item.href}>{item.label}</a>
+              <a href={item.href}
+                class="nav-link"
+                data-target={item.href.replace('#', '')}
+                >
+                  {item.label}
+                </a>
             </li>
           ))
         }
@@ -49,7 +54,7 @@ import Logo from '../assets/logo.png';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 0.9rem;
+    padding-block: 0.4rem;
     gap: 1rem;
   }
 
@@ -75,9 +80,9 @@ import Logo from '../assets/logo.png';
   .brand__name {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     position: relative;
-    left: -80px;
+    left: -100px;
   }
 
   .brand__place {
@@ -104,13 +109,18 @@ import Logo from '../assets/logo.png';
 
   .site-nav a {
     text-decoration: none;
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: var(--text-on-dark-soft);
     transition: color 0.2s ease;
   }
 
   .site-nav a:hover {
     color: var(--marker);
+  }
+
+  .nav-link.active {
+    font-weight: bold;
+    color: var(--marker) !important;
   }
 
   .nav-cta {
@@ -165,3 +175,36 @@ import Logo from '../assets/logo.png';
     }
   }
 </style>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  // Options for the observer (trigger when 20% of the section is visible)
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2
+  };
+
+  const observerCallback = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // Remove active class from all links
+        navLinks.forEach((item) => item.classList.remove('active'));
+        
+        // Add active class to the link matching the visible section ID
+        const activeLink = document.querySelector(`.nav-link[data-target="${entry.target.id}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+</script>

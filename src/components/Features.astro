@@ -2,7 +2,7 @@
 import { features } from "../data/site";
 ---
 
-<section class="section" id="kenmerken">
+<section class="section scrolling" id="kenmerken">
   <div class="container">
     <p class="eyebrow">Kenmerken</p>
     <h2>Locatie, skigebied & appartement</h2>
@@ -10,7 +10,7 @@ import { features } from "../data/site";
     <div class="feature-grid">
       {
         features.map((f, i) => (
-          <article class="feature-card">
+          <article class="feature-card card">
             <span class="feature-card__index">{String(i + 1).padStart(2, "0")}</span>
             <h3>{f.title}</h3>
             <p>{f.body}</p>

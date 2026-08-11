@@ -2,7 +2,7 @@
 import { activities } from "../data/site";
 ---
 
-<section class="section" id="activiteiten">
+<section class="section scrolling" id="activiteiten">
   <div class="container">
     <p class="eyebrow">Activiteiten</p>
     <h2>Zomer & winter, één regio</h2>
@@ -10,7 +10,7 @@ import { activities } from "../data/site";
     <div class="activities-grid">
       {
         activities.map((a) => (
-          <article class="activity">
+          <article class="activity card">
             <h3>{a.title}</h3>
             <p>{a.body}</p>
           </article>

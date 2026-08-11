@@ -145,6 +145,12 @@ p {
   background: var(--stone);
 }
 
+.scrolling {
+  opacity: 0;
+  transform: translateY(50px);
+  will-change: opacity, transform; 
+}
+
 .btn {
   font-family: var(--font-mono);
   font-size: 0.78rem;

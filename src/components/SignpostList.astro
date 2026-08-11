@@ -10,7 +10,7 @@ const { items, compact = false } = Astro.props;
 <ul class:list={["signposts", { compact }]}>
   {
     items.map((item) => (
-      <li class="signpost">
+      <li class="signpost scrolling">
         <span class="signpost__plank">{item}</span>
       </li>
     ))

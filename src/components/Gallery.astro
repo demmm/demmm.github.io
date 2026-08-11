@@ -9,6 +9,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 const imageList = Object.values(images).map((file) => file.default);
 ---
+
 <section class="section section--stone" id="galerij">
   <div class="container">
     <p class="eyebrow">Galerij</p>
@@ -16,36 +17,38 @@ const imageList = Object.values(images).map((file) => file.default);
 
     <div class="gallery-grid">
       {
-        imageList.map((img) => (
-          <a href={`#lightbox-${img.src}`} class="gallery-grid__item" aria-label={`Vergroot: ${img.alt}`}>
-          <Image 
-            src={img} 
-            alt="Gallery image" 
-            loading="lazy" 
-            //class="lightbox"
-            formats={['avif', 'webp', 'original']}
-            data-full-res={img.src}
-          />
-          </a>
+        imageList.map((img, index) => (
+          <button 
+            class="gallery-grid__item" 
+            aria-label={`Vergroot: ${img.alt}`}
+            data-index={index}
+            style="background: none; border: none; padding: 0; cursor: pointer;"
+          >
+            <Image 
+              src={img} 
+              alt="Gallery image"
+              loading="lazy" 
+              formats={['avif', 'webp', 'original']}
+              class="thumbnail"
+              // Pass the full resolution src to the button for JS to pick up
+              //data-full-src={img.src} 
+            />
+          </button>
         ))
       }
     </div>
   </div>
-  
-  {
-    imageList.map((img) => (
-      <div class="lightbox" id={`lightbox-${img.src}`}>
-        <a href="#galerij" class="lightbox__scrim" aria-label="Sluiten"></a>
-        <figure class="lightbox__figure">
-          <img src={img.src} alt={img.alt} />
-          <figcaption>{img.alt}</figcaption>
-        </figure>
-        <a href="#galerij" class="lightbox__close" aria-label="Sluiten">✕</a>
-      </div>
-    ))
-  }
-  
 </section>
+
+<div class="lightbox-overlay" id="lightbox" aria-hidden="true">
+  <button class="lightbox__scrim" aria-label="Sluiten"></button>
+  <figure class="lightbox__figure">
+    <!-- Initial src is empty, populated by JS -->
+    <img id="lightbox-img" src="" alt="Gallery Image" />
+    <figcaption id="lightbox-caption"></figcaption>
+  </figure>
+  <button class="lightbox__close" aria-label="Sluiten">✕</button>
+</div>
 
 <style>
   .gallery-grid {
@@ -72,60 +75,147 @@ const imageList = Object.values(images).map((file) => file.default);
   .gallery-grid__item:hover img {
     transform: scale(1.06);
   }
-  
-  .lightbox {
+
+  /* Basic CSS to support the JS logic */
+  .lightbox-overlay {
     position: fixed;
     inset: 0;
-    z-index: 100;
-    display: none;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease; /* Fallback for backdrop */
   }
 
-  .lightbox:target {
-    display: flex;
-  }
-
-  .lightbox__scrim {
-    position: absolute;
-    inset: 0;
-    background: rgba(16, 32, 46, 0.92);
+  .lightbox-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .lightbox__figure {
-    position: relative;
-    max-width: min(90vw, 1000px);
-    max-height: 86vh;
     margin: 0;
-    text-align: center;
-  }
-
-  .lightbox__figure img {
-    max-width: 100%;
-    max-height: 78vh;
-    border-radius: var(--radius);
-  }
-
-  .lightbox__figure figcaption {
-    color: var(--text-on-dark-soft);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    margin-top: 0.75rem;
-  }
-
-  .lightbox__close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    color: var(--text-on-dark);
-    text-decoration: none;
-    font-size: 1.1rem;
-    border: 1px solid rgba(238, 241, 238, 0.4);
-    border-radius: 50%;
-    width: 2.4rem;
-    height: 2.4rem;
-    display: inline-flex;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
   }
-</style>   
+
+  #lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+    /* Ensure it's visible when active, hidden otherwise */
+    display: block; 
+  }
+
+  figcaption:empty {
+    display: none;
+  }
+
+  .lightbox__scrim, .lightbox__close {
+    position: absolute;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .lightbox__scrim {
+    inset: 0;
+  }
+  .lightbox__close {
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+  }
+</style> 
+
+<script>
+  import { animateView, spring } from "motion";
+
+  const grid = document.querySelector(".gallery-grid");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+  // Select the buttons
+  const thumbnails = document.querySelectorAll(".gallery-grid__item");
+
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const imgElement = thumb.querySelector("img");
+
+      const fullSrc = imgElement?.src; 
+      const altText = imgElement?.alt || "";
+
+      if (!fullSrc) {
+        console.error("No image source found!");
+        return;
+      }
+
+      const update = () => {
+        lightboxImg.src = fullSrc;
+        lightboxImg.alt = altText;
+        lightboxCaption.textContent = altText;
+        lightbox.setAttribute("aria-hidden", "false");
+        lightbox.classList.add("active");
+      };
+
+      // Animate from the rendered thumbnail img -> lightbox img
+      animateView(update, { 
+        transition: { type: spring, stiffness: 300, damping: 25 } 
+      })
+      .add(imgElement, lightboxImg);
+    });
+  });
+
+  const closeLightbox = () => {
+    const lightboxSrc = lightboxImg.src;
+    
+    // Find the thumbnail that has an img with this specific src
+    const currentThumb = Array.from(thumbnails).find(t => {
+      const tImg = t.querySelector("img");
+      return tImg && tImg.src === lightboxSrc;
+    });
+
+    const imgToShrink = currentThumb ? currentThumb.querySelector("img") : null;
+
+    if (!imgToShrink) {
+        // Fallback if no match found (just hide)
+        lightbox.classList.remove("active");
+        lightboxImg.src = "";
+        return;
+    }
+
+    const update = () => {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+    };
+
+    const animation = animateView(update, { 
+      transition: { type: spring, stiffness: 300, damping: 25 } 
+    })
+    .add(lightboxImg, imgToShrink)
+    .exit({ opacity: [1, 0], scale: [1, 0.95] });
+
+    animation.finished.then(() => {
+      lightboxImg.src = "";
+      lightboxCaption.textContent = "";
+    });
+  };
+
+  document.querySelector(".lightbox__scrim")?.addEventListener("click", closeLightbox);
+  document.querySelector(".lightbox__close")?.addEventListener("click", closeLightbox);
+  
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox.classList.contains("active")) {
+      closeLightbox();
+    }
+  });
+</script>   
