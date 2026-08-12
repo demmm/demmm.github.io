@@ -1,8 +1,10 @@
 ---
 import { footer, site } from "../data/site";
+import ContourDivider from "./ContourDivider.astro";
 ---
 
 <footer class="site-footer">
+  <ContourDivider tone="snow" flip />
   <div class="container site-footer__inner">
     <p>{footer.copyright}</p>
     <a href="#top" class="site-footer__top">Scroll naar boven ↑</a>
@@ -19,7 +21,7 @@ import { footer, site } from "../data/site";
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-block: 1.75rem;
+    padding-block: 0.5rem;
     font-family: var(--font-mono);
     font-size: 0.75rem;
     letter-spacing: 0.03em;

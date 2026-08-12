@@ -1,8 +1,4 @@
 // All site copy and media in one place — edit here, not in the components.
-// Images are still hot-linked from the original WordPress media library
-// (hochkoenigferien.com/wp-content/uploads/...). Download them into
-// /public/images and swap the paths below when you're ready to fully
-// detach from the old host.
 
 export const site = {
   name: "Hochkönig Ferien",
